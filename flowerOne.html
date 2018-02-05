@@ -65,8 +65,8 @@
     if (/i(Phone|P(o|a)d)/.test(navigator.userAgent)) {
       $(document).one('touchstart',
         function(e) {
-            audio.get(0).touchstart = true;
-            audio.get(0).play();
+            audio.touchstart = true;
+            audio.play();
             return false;
         });
     }
