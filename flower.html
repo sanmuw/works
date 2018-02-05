@@ -16,9 +16,10 @@
     document.body.clientWidth;
 </script>
 <script>
+	var audio = document.getElementById('audiojs');
   document.addEventListener('DOMContentLoaded', function () {
       function audioAutoPlay() {
-          var audio = document.getElementById('audiojs');
+          
               audio.play();
           document.addEventListener("WeixinJSBridgeReady", function () {
               audio.play();
@@ -30,8 +31,8 @@
     if (/i(Phone|P(o|a)d)/.test(navigator.userAgent)) {
       $(document).one('touchstart',
         function(e) {
-            $('#audiojs').get(0).touchstart = true;
-            $('#audiojs').get(0).play();
+            audio.get(0).touchstart = true;
+            audio.get(0).play();
             return false;
         });
     }
