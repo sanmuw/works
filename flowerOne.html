@@ -3,7 +3,7 @@
 <head>
     <title>用js html5渲染3D花朵</title>
     <meta charset="utf-8">
-    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="js/jquery.min.js"></script>
 </head>
 <body>
 <audio showcontrols="true" autoplay loop id="audiojs">
@@ -17,9 +17,9 @@
     document.body.clientWidth;
 </script>
 <script>
-    var audio = document.getElementById('audiojs');
       document.addEventListener('DOMContentLoaded', function () {
       function audioAutoPlay() {
+          var audio = document.getElementById('audiojs');
               audio.play();
           document.addEventListener("WeixinJSBridgeReady", function () {
               audio.play();
@@ -27,6 +27,8 @@
       }
       audioAutoPlay();
   });
+
+
     // start of submission //
     with(m = Math) C = cos,
             S = sin,
@@ -58,15 +60,14 @@
             return [o * C(c) - w * S(c), B * 99 - C(P(b, 7)) * 50 - c / 3 - z / 1.35 + 450, z, (1 - b / 1.2) * .9 + a * .1, P((1 - b), 20) / 4 + .05]
         }
     }
-    setInterval('for(i=0;i<1e4;i++)if(s=p(R(),R(),i%46/.74)){z=s[2];x=~~(s[0]*f/z-h);y=~~(s[1]*f/z-h);if(!m[q=y*f+x]|m[q]>z)m[q]=z,a.fillStyle="rgb("+~(s[3]*h)+","+~(s[4]*h)+","+~(s[3]*s[3]*-80)+")",a.fillRect(x,y,1,1)}', 0)
-
+    setInterval('for(i=0;i<1e4;i++)if(s=p(R(),R(),i%46/.74)){z=s[2];x=~~(s[0]*f/z-h);y=~~(s[1]*f/z-h);if(!m[q=y*f+x]|m[q]>z)m[q]=z,a.fillStyle="rgb("+~(s[3]*h)+","+~(s[4]*h)+","+~(s[3]*s[3]*-80)+")",a.fillRect(x,y,1,1)}', 0);
 
  
     if (/i(Phone|P(o|a)d)/.test(navigator.userAgent)) {
       $(document).one('touchstart',
         function(e) {
-            audio.touchstart = true;
-            audio.play();
+            $('#audiojs').get(0).touchstart = true;
+            $('#audiojs').get(0).play();
             return false;
         });
     }
