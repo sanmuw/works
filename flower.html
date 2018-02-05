@@ -28,14 +28,7 @@
       audioAutoPlay();
   });
  
-    if (/i(Phone|P(o|a)d)/.test(navigator.userAgent)) {
-      $(document).one('touchstart',
-        function(e) {
-            audio.get(0).touchstart = true;
-            audio.get(0).play();
-            return false;
-        });
-    }
+
 
     // start of submission //
     with(m = Math) C = cos,
