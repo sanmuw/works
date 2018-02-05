@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-<audio showcontrols="true" autoplay loop>
+<audio showcontrols="true" autoplay loop id="audiojs">
         <source src="wanwan.mp3">
 </audio>
 <canvas id="c" height="1500" width="1000"></canvas>
@@ -16,6 +16,26 @@
     document.body.clientWidth;
 </script>
 <script>
+  document.addEventListener('DOMContentLoaded', function () {
+      function audioAutoPlay() {
+          var audio = document.getElementById('audiojs');
+              audio.play();
+          document.addEventListener("WeixinJSBridgeReady", function () {
+              audio.play();
+          }, false);
+      }
+      audioAutoPlay();
+  });
+ 
+    if (/i(Phone|P(o|a)d)/.test(navigator.userAgent)) {
+      $(document).one('touchstart',
+        function(e) {
+            $('#audiojs').get(0).touchstart = true;
+            $('#audiojs').get(0).play();
+            return false;
+        });
+    }
+
     // start of submission //
     with(m = Math) C = cos,
             S = sin,
